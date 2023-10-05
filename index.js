@@ -22,10 +22,11 @@ app.get("/", async (req, res) => {
     const result = await axios.get(
       "https://byabbe.se/on-this-day/2/2/events.json"
     );
+
     res.render("index.ejs", {
       date: date,
       formattedDate: formattedDate,
-      day: result,
+      result: result.data.events,
     });
   } catch (error) {
     console.log(error);
